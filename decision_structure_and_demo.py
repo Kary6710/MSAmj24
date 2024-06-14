@@ -1,3 +1,14 @@
+#function to get season
+def get_season(month_value):
+    if month_value == 12 or month_value == 1 or month_value == 2:
+        return "Winter"
+    elif month_value == 3 or month_value == 4 or month_value == 5:
+        return "Spring"
+    elif month_value == 6 or month_value == 7 or month_value == 8:
+        return "Summer"
+    else:
+        return "Fall"
+
 def main():
     a = 7
     b = 7
@@ -38,6 +49,10 @@ def main():
     else:
         print(f"{test_score} --> F")
 
+#create a function to return the season base on the month
+#Input month number
+#output season name
+
 #create a dicision structure to determine the season winter,spring, summer, fall based on the month
 #Winter (12,1,2,) Spring(3,4,5) Summer(6,7,8) Fall(9,10,11)
 #ask the user to enter the number of the month
@@ -58,19 +73,12 @@ def main():
         print("\n    MONTH")
         print("---------------")
 
-        
+        season_name = get_season(month_value)
+        print(f"The season is {season_name}")
 
-        if month_value == 12 or month_value == 1 or month_value == 2:
-            print("* Winter")
-        elif month_value == 3 or month_value == 4 or month_value == 5:
-            print("* Spring")
-        elif month_value == 6 or month_value == 7 or month_value == 8:
-            print("* Summer")
-        else:
-            print("* Fall")
-        
+
+#ask user if the want to continue
         print("\n")
-
         user_answer = str(input("Would you like to run the program again? Enter 'y' to continue."))
         if user_answer == "y":
             continue
