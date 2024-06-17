@@ -30,4 +30,9 @@ def main():
     print("\n\n")
     for key, value in car.items():
         print(f"{key}: {value}")
+
+# How to use the split method
+    car_info = "Ferrari, f-50, 2021,500000,4.8"
+    car_data= car_info.split(",")
+    print(car_data)
 main()
