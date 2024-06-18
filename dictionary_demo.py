@@ -48,3 +48,54 @@ def main():
     print(f"Year: {car_year}-- Price{car_price}-- Engine: {engine_size}")
 
 main()
+# function to load menu items from the file and create a dictionary
+# Input: none
+#Output: dictionary of menu items
+
+def get_menu_items():
+#create a file handle that gives us acces to the file
+#create an empty dictionary to store menu items and prices
+#loop through data in the file and read file one line at a time
+# split the line of data at the coma using .split()
+#get items and price from the resulting list and create and store in the dictinary
+#close the file
+    data_file = open("menu.txt","r")
+    menu_items = {}
+    for line_of_data in data_file:
+
+        keys_and_value = line_of_data.split("'")
+
+        item = keys_and_value[0]
+        price = float(keys_and_value[1])
+        menu_items [item] =price
+    data_file.close()
+    return menu_items
+
+
+def main():
+   
+    menu_items = get_menu_items()
+    total = 0
+    #PROMPT USER FOR AN ITEM 
+    # declare a variable to keep track of the total
+    while(True):
+    
+        item = input("Enter a menu item:")
+
+        if item.lower() == "end":
+            break
+
+        try:
+            #ITEM PRINT TOTAL COST OF THE INPUTTED ITEM
+            price = menu_items[item] 
+        except:
+            continue
+            #ignore any input that is not in the list
+
+        total += price
+        print(f" Total: ${total}")
+
+
+# end program when user types any form of end
+
+main()
