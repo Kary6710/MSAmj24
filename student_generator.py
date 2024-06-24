@@ -1,8 +1,26 @@
+import student
+from datetime import datetime
+"""
+Function to write error  log file 
+Input: Error mmessage 
+output: none 
+"""
+def write_to_error_log(err_message):
+    try:
+        #open log file 
+        log_file= open("error_log.txt","a")
+        #write error message to teh log file 
+        log_file.write(f"{datetime.now()}: {err_message}\n")
+        #close log file 
+        log_file.close()
+    except Exception as err:
+        print(err)
+        return
+        
 import Student
 
 def load_students(file_name):
     list_of_students = []
-
     
     #create a file handler
     file = open(file_name, "r")
