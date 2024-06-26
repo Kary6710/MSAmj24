@@ -4,7 +4,7 @@ import requests
 
 #Make a flask app
 app = Flask(__name__)
-app.config["DEBUG"]
+app.config["DEBUG"] = True
 
 #Set a secret key to iuse when validating form data
 app.config["SECRET_KEY"] = "your secret key"
@@ -32,7 +32,13 @@ def index():
 
     #send the student data to the index.html page
     
-    return render_template('index.html')
+    return render_template('index.html', student_data=student_data)
 
+@app.route('/majors', methods=['GET'])
+def majors():
+    return render_template('majors.html')
+    
+ 
 
 app.run(port = 5005)
+
